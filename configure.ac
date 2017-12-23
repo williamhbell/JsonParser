@@ -13,17 +13,10 @@ AC_PREREQ([2.68])
 AC_CONFIG_SRCDIR([src/json_common.c])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([1.11 -Wall -Werror])
+AM_INIT_AUTOMAKE([foreign subdir-objects 1.11 -Wall -Werror])
+AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_FILES([Makefile])
 AC_PROG_CC
+AM_PROG_AR
 AC_OUTPUT
-
-dnl Enable silent rules, when available (automake 1.11 or later).
-dnl m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
-
-dnl AC_CONFIG_HEADER([config.h])
-
-dnl CC_CHECK_CFLAGS_APPEND([-Wall -Wextra])
-
-dnl AC_CONFIG_FILES([Makefile src/Makefile])
-dnlAC_OUTPUT([Makefile])
+LT_INIT()
